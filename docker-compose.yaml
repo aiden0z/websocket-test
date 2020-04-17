@@ -1,0 +1,13 @@
+version: '3'
+services:
+  ws-test:
+    image: golang:latest
+    environment: 
+      - GOPROXY=https://goproxy.io,direct
+      - GO111MODULE=on
+    working_dir: /opt/ws-test
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/opt/ws-test
+    command: go run main.go
